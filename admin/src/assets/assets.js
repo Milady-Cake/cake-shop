@@ -14,4 +14,4 @@ export const assets ={
     parcel_icon
 }
 
-export const url = 'https://cake-shop-backend-kgtq.onrender.com'
+export const url = 'https://cake-shop-backend-e7bq.onrender.com'
