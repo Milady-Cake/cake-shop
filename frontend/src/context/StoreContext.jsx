@@ -6,7 +6,7 @@ export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-  const url = "https://cake-shop-backend-e7bq.onrender.com"// Ensure there's a trailing slash
+  const url = "http://localhost:4000/"// Ensure there's a trailing slash
 
   const [token,setToken]=useState("");
   const[cake_list,setCakeList]=useState([])
