@@ -13,7 +13,7 @@ import Orders from './pages/Orders/Orders'
 
 const App = () => {
 
-  const url="https://cake-shop-backend-e7bq.onrender.com"
+  const url="http://localhost:4000"
 
   return (
     <div>
