@@ -789,8 +789,28 @@ const CakeItem = ({
     }
   }}
 >
+<button
+  className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
+  onClick={() => {
+    const productUrl = `${window.location.origin}/detail/${id}`; // Ensure correct product URL
+
+    if (navigator.share) {
+      navigator
+        .share({
+          title: name,
+          text: `Check out this delicious cake: ${name}`,
+          url: productUrl, // Share the correct product page URL
+        })
+        .then(() => console.log("Shared successfully"))
+        .catch((error) => console.log("Sharing failed", error));
+    } else {
+      alert("Sharing not supported in this browser.");
+    }
+  }}
+>
   <FaCodeBranch className="text-gray-600" />
 </button>
+
 
             <button
               className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
@@ -1000,12 +1020,14 @@ const ProductPopup = ({
                 <button
   className="flex items-center gap-1 hover:text-black"
   onClick={() => {
+    const productUrl = `${window.location.origin}${window.location.pathname}`; // Ensures correct shared URL
+
     if (navigator.share) {
       navigator
         .share({
           title: name,
           text: `Check out this delicious cake: ${name}`,
-          url: window.location.href,
+          url: productUrl, // Uses the correct URL for the current page
         })
         .then(() => console.log("Shared successfully"))
         .catch((error) => console.log("Sharing failed", error));
@@ -1016,6 +1038,7 @@ const ProductPopup = ({
 >
   <Share2 size={16} /> Share
 </button>
+
 
               </div>
 

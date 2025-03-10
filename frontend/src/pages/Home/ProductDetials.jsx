@@ -161,12 +161,14 @@ const ProductDetails = () => {
               <button
   className="flex items-center gap-1 hover:text-black"
   onClick={() => {
+    const productUrl = `${window.location.origin}/detail/${id}`; // Correct product page URL
+
     if (navigator.share) {
       navigator
         .share({
           title: name,
           text: `Check out this delicious cake: ${name}`,
-          url: window.location.href,
+          url: productUrl, // Share the correct product page URL
         })
         .then(() => console.log("Shared successfully"))
         .catch((error) => console.log("Sharing failed", error));
@@ -177,6 +179,7 @@ const ProductDetails = () => {
 >
   <Share2 size={16} /> Share
 </button>
+
 
             </div>
             {/* Message Input */}
