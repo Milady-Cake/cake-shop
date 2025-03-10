@@ -353,7 +353,7 @@ import React, { createContext, useEffect, useState } from "react";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = ({ children }) => {
-    const url = "https://cake-shop-backend-qfhf.onrender.com";
+    const url = "https://cake-shop-backend-qfhf.onrender.com/";
     const [cartItems, setCartItems] = useState(() => {
         const savedCart = localStorage.getItem("cartItems");
         return savedCart ? JSON.parse(savedCart) : {};
@@ -379,7 +379,7 @@ const StoreContextProvider = ({ children }) => {
     // ✅ Fetch Cake List
     const fetchCakeList = async () => {
         try {
-            const response = await axios.get(url + "/api/cake/list");
+            const response = await axios.get(url + "api/cake/list");
             setCakeList(response.data.data);
         } catch (error) {
             console.error("Error fetching cake list:", error);
