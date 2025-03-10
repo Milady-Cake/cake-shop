@@ -720,73 +720,110 @@ const CakeItem = ({
 
   return (
     <>
-     <motion.div
-      className="relative bg-white rounded-xl shadow-lg overflow-hidden border-2 border-gray-300 transition-transform duration-300 hover:scale-105 w-full max-w-[360px] sm:max-w-[400px] md:max-w-[420px] lg:max-w-[450px]"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="relative overflow-hidden">
-        <img
-          src={`${url}images/${image?.[0]}`}
-          alt={name}
-          onClick={() => navigate(`/detail/${id}`)}
-          className={`w-full h-80 max-md:h-44 object-cover rounded-t-xl transition-transform duration-300 ${
-            hovered ? "scale-110" : "scale-100"
-          }`}
-        />
-        <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs font-bold rounded">
-          {discount}% OFF
-        </div>
-        <div
-          className={`absolute top-2 right-2 flex flex-col gap-2 transition-opacity duration-300 ${
-            hovered ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200" onClick={() => navigate(`/detail/${id}`)}>
-            <FaEye className="text-gray-600" />
-          </button>
-          <button
-            className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
-            onClick={() => setLiked(!liked)}
+      <motion.div
+        className="relative bg-white rounded-xl shadow-lg overflow-hidden border-2 border-gray-300 transition-transform duration-300 hover:scale-105 lg:p-3"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="relative overflow-hidden">
+          <img
+            src={`${url}images/${image?.[0]}`}
+            alt={name}
+            onClick={() => navigate(`/detail/${id}`)}
+            className={`w-full h-72 max-md:h-36 object-cover rounded-t-xl transition-transform duration-300 ${
+              hovered ? "scale-110" : "scale-100"
+            }`}
+          />
+          <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs font-bold rounded">
+            {discount}% OFF
+          </div>
+          <div
+            className={`absolute top-2 right-2 flex flex-col gap-2 transition-opacity duration-300 ${
+              hovered ? "opacity-100" : "opacity-0"
+            }`}
           >
-            <FaHeart className={liked ? "text-red-500" : "text-gray-600"} />
+            <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200">
+              <FaEye
+                onClick={() => navigate(`/detail/${id}`)}
+                className="text-gray-600"
+              />
+            </button>
+          
+            <button
+              className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
+              onClick={() => {
+                const productUrl = `${window.location.origin}/detail/${id}`; // Ensure correct product URL
+
+                if (navigator.share) {
+                  navigator
+                    .share({
+                      title: name,
+                      text: `Check out this delicious cake: ${name}`,
+                      url: productUrl, // Share the correct product page URL
+                    })
+                    .then(() => console.log("Shared successfully"))
+                    .catch((error) => console.log("Sharing failed", error));
+                } else {
+                  alert("Sharing not supported in this browser.");
+                }
+              }}
+            >
+              <FaCodeBranch className="text-gray-600" />
+            </button>
+
+            <button
+              className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
+              onClick={() => setLiked(!liked)}
+            >
+              <FaHeart className={liked ? "text-red-500" : "text-gray-600"} />
+            </button>
+          </div>
+        </div>
+
+        <div className="p-2">
+          <h3 className="text-xl font-bold max-md:line-clamp-2 line-clamp-1 text-gray-900 max-md:text-base">
+            {name}
+          </h3>
+          <p className="line-clamp-2 max-md:hidden  text-pretty">
+            {description}
+          </p>
+          <div className="flex  items-center  lg:gap-1 lg:py-1 text-gray-600">
+            {Array.from({ length: 5 }, (_, index) => (
+              <span
+                key={index}
+                className={
+                  index < Math.round(rating)
+                    ? "text-yellow-500 lg:text-xl"
+                    : "text-gray-400"
+                }
+              >
+                ★
+              </span>
+            ))}
+            <span className="text-sm ">(20 )</span>
+          </div>
+          <div className="flex justify-start gap-4 items-center max-md:text-base ">
+            <p className="text-[20px] max-md:text-[17px] font-bold text-red-500">
+              ₹{offerPrice}
+            </p>
+            <p className="text-[18px] max-md:text-[15px] max-md:text-xs text-gray-500 line-through">
+              ₹{originalPrice}
+            </p>
+          </div>
+
+          <button
+            className="lg:mt-3 max-md:mt-1 w-full bg-gradient-to-b from-red-500 to-orange-500 text-white lg:py-2 rounded-md flex items-center justify-center gap-2 hover:from-red-600 hover:to-orange-600"
+            onClick={() => setIsOpen(true)}
+          >
+            <FaShoppingCart />
+            Add to cart
           </button>
         </div>
-      </div>
-
-      <div className="p-3">
-        <h3 className="text-xl font-bold max-md:line-clamp-2 text-gray-900 max-md:text-base">{name}</h3>
-        <p className="line-clamp-2 max-md:hidden text-pretty text-gray-700">{description}</p>
-        <div className="flex items-center gap-1 py-1 text-gray-600">
-          {Array.from({ length: 5 }, (_, index) => (
-            <span
-              key={index}
-              className={
-                index < Math.round(rating) ? "text-yellow-500 text-lg" : "text-gray-400"
-              }
-            >
-              ★
-            </span>
-          ))}
-          <span className="text-sm">(20)</span>
-        </div>
-        <div className="flex items-center gap-4">
-          <p className="text-lg font-bold text-red-500">₹{offerPrice}</p>
-          <p className="text-base text-gray-500 line-through">₹{originalPrice}</p>
-        </div>
-
-        <button
-          className="mt-3 w-full bg-gradient-to-b from-red-500 to-orange-500 text-white py-2 rounded-md flex items-center justify-center gap-2 hover:from-red-600 hover:to-orange-600"
-          onClick={() => console.log("Added to cart")}
-        >
-          <FaShoppingCart /> Add to cart
-        </button>
-      </div>
-    </motion.div>
+      </motion.div>
 
       <ProductPopup
         isOpen={isOpen}

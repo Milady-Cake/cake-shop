@@ -1,7 +1,7 @@
 
 
 
-import './CakeDisplay.css';
+// import './CakeDisplay.css';
 import { StoreContext } from '../../context/StoreContext';
 import CakeItem from '../CakeItem/CakeItem';
 import { useContext } from 'react';
@@ -14,7 +14,7 @@ const CakeDisplay = ({ category }) => {
 
   return (
     <motion.div 
-      className="mt-8 px-2 lg:px-12 max-md:px-1"  
+      className="mt-8 px-2 w-full lg:px-12 max-md:px-1"  
       id="cake-display"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
