@@ -2,19 +2,18 @@ import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
+import Navbar from './components/Navbar/Navbar'
+import "./index.css"; // Import global styles
 import Cart from './pages/Cart/Cart'
+import CheckoutForm from './pages/Home/CheckOut'
+import ContactSection from './pages/Home/ContactUs'
 import Home from './pages/Home/Home'
+import ProductDetials from './pages/Home/ProductDetials'
 import MyOrders from './pages/MyOrders/MyOrders'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Verify from './pages/Verify/Verify'
-import BakeryUI from './pages/Home/Hero';
-import ContactSection from './pages/Home/ContactUs';
-import ProductSection from './pages/Home/Category';
-import BestSelling from './pages/Home/BestSelling';
-import ProductDetials from './pages/Home/ProductDetials';
-import "./index.css"; // Import global styles
-import CheckoutForm from './pages/Home/CheckOut'
-import Navbar from './components/Navbar/Navbar'
+
+// deva
 
 
 const App = () => {
