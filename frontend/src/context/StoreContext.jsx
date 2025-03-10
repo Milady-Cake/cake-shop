@@ -348,13 +348,12 @@
 
 
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
-import React from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = ({ children }) => {
-    const url = "http://localhost:4000/";
+    const url = "https://cake-shop-backend-qfhf.onrender.com";
     const [cartItems, setCartItems] = useState(() => {
         const savedCart = localStorage.getItem("cartItems");
         return savedCart ? JSON.parse(savedCart) : {};

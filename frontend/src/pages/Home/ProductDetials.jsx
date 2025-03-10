@@ -14,7 +14,7 @@ const ProductDetails = () => {
   const { cartItems, addToCart, cake_list } = useContext(StoreContext);
   const { id } = useParams();
   const navigate = useNavigate();
-  const url = "http://localhost:4000/";
+  const url = "https://cake-shop-backend-qfhf.onrender.com";
 
   const [message, setMessage] = useState("");
   const [liked, setLiked] = useState(false);

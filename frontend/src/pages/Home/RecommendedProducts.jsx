@@ -1,14 +1,13 @@
-import { useContext, useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import React, { useContext, useEffect, useState } from "react";
+import { FaEye } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import React from "react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { StoreContext } from "../../context/StoreContext";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { FaEye } from "react-icons/fa";
 
 const RecommendedProducts = () => {
   const { cake_list, addToCart } = useContext(StoreContext);
@@ -70,7 +69,7 @@ const RecommendedProducts = () => {
           >
             <div className="relative group w-28 h-28 max-sm:w-20 max-sm:h-20">
               <img
-                src={`http://localhost:4000/images/${
+                src={`https://cake-shop-backend-qfhf.onrender.com/images/${
                   item.images?.[0] || "default.jpg"
                 }`}
                 alt={item.name}

@@ -228,10 +228,10 @@
 
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { StoreContext } from "../../context/StoreContext";
-import { BiCookie, BiCake, BiCheckCircle, BiXCircle } from "react-icons/bi";
+import { BiCake, BiCheckCircle, BiCookie, BiXCircle } from "react-icons/bi";
 import { FaTruck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { StoreContext } from "../../context/StoreContext";
 
 const MyOrders = () => {
   const { url, token } = useContext(StoreContext);
@@ -327,7 +327,7 @@ const MyOrders = () => {
               {order.items.map((item, idx) => (
                 <img
                   key={idx}
-                  src={`http://localhost:4000/images/${item.image}`}
+                  src={`https://cake-shop-backend-qfhf.onrender.com/images/${item.image}`}
                   alt={item.name}
                   className="w-16 h-16 object-cover border border-gray-300 rounded-md cursor-pointer"
                   onClick={() => navigate(`/detail/${item.itemId}`)}
@@ -405,7 +405,7 @@ const MyOrders = () => {
                   className="flex items-center gap-4 border-b pb-2"
                 >
                   <img
-                    src={`http://localhost:4000/images/${item.image}`}
+                    src={`https://cake-shop-backend-qfhf.onrender.com/images/${item.image}`}
                     alt={item.name}
                     className="w-16 h-16 object-cover rounded-lg border"
                   />

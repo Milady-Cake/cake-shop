@@ -567,13 +567,13 @@
 
 // testing
 
-import React, { useContext, useEffect, useState } from "react";
-import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
-import { useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import React, { useContext, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { StoreContext } from "../../context/StoreContext";
 
-import { FaTruck, FaStore, FaEdit } from "react-icons/fa";
+import { FaEdit, FaStore, FaTruck } from "react-icons/fa";
 
 const PlaceOrder = () => {
   const [step, setStep] = useState(1);
@@ -1182,7 +1182,7 @@ const PlaceOrder = () => {
                         className="flex items-center gap-4 p-2 border-b"
                       >
                         <img
-                          src={`http://localhost:4000/images/${
+                          src={`https://cake-shop-backend-qfhf.onrender.com/images/${
                             item.images?.length > 0
                               ? item.images[0]
                               : "default.jpg"
