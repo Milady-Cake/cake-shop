@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap'); */
 *{
   padding: 0;
   margin: 0;
@@ -20,7 +20,7 @@ a{
 }
 
 .app{
-  width:80%;
+  width:100%;
   margin: auto;
 }
 
@@ -32,4 +32,43 @@ a{
     opacity: 1;
   }
   
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+/* Reduce navigation button size */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 30px !important; /* Smaller width */
+  height: 30px !important; /* Smaller height */
+  font-size: 20px !important; /* Reduce arrow size */
+  color: black; /* Change arrow color */
+}
+
+/* Reduce arrow icon size */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 18px !important; /* Make arrows smaller */
+}
+
+.navbar {
+  transition: transform 0.3s ease-in-out;
+}
+
+.translate-y-0 {
+  transform: translateY(0);
+}
+
+.-translate-y-full {
+  transform: translateY(-100%);
 }
