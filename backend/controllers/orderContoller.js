@@ -125,7 +125,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // ✅ Place Order API
 const placeOrder = async (req, res) => {
-    const frontend_url = 'http://localhost:5173';
+    const frontend_url = 'https://cake-shop-green.vercel.app/';
 
     try {
         const { userId, items, amount, address ,image , name } = req.body;
@@ -234,3 +234,4 @@ const updateStatus = async (req, res) => {
 };
 
 export { listOrders, placeOrder, updateStatus, userOrders, verifyOrder };
+
