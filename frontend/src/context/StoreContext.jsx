@@ -379,7 +379,7 @@ const StoreContextProvider = ({ children }) => {
     // ✅ Fetch Cake List
     const fetchCakeList = async () => {
         try {
-            const response = await axios.get(url + "api/cake/list");
+            const response = await axios.get(url + "/api/cake/list");
             setCakeList(response.data.data);
         } catch (error) {
             console.error("Error fetching cake list:", error);
