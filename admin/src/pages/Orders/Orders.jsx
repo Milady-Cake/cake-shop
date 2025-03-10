@@ -57,7 +57,7 @@ const Orders = ({ url }) => {
                 <div className="order-details">
                   {/* ✅ Show Product Image */}
                   <img
-                    src={`http://localhost:4000/images/${order.items[0]?.image}`}
+                    src={`https://cake-shop-backend-qfhf.onrender.com/images/${order.items[0]?.image}`}
                     alt={order.items[0]?.name || "Cake"}
                     className="order-image"
                   />
