@@ -586,23 +586,23 @@
 
 // export default Add;
 
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
-import { useLocation, useNavigate } from "react-router-dom";
 import { Cancel } from "@mui/icons-material";
 import {
-  TextField,
-  Select,
-  MenuItem,
-  FormControl,
-  InputLabel,
-  OutlinedInput,
-  Checkbox,
-  ListItemText,
   Button,
+  Checkbox,
+  FormControl,
   IconButton,
+  InputLabel,
+  ListItemText,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  TextField,
 } from "@mui/material";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Add = ({ url }) => {
   const location = useLocation();
@@ -703,7 +703,7 @@ const Add = ({ url }) => {
   };
 
   return (
-    <div className="w-full min-h-screen flex justify-evenly p-4 sm:p-6 lg:p-8 px-4 sm:px-10 lg:px-20">
+    <div className="w-full min-h-screen flex justify-evenly  p-4 sm:p-6 lg:p-8">
     <div className="w-full max-w-7xl  p-6 mx-auto  rounded-lg  overflow-hidden">
       <div className="p-6 sm:p-8">
         <h2 className="text-2xl sm:text-3xl  font-bold text-center mb-6 text-gray-800">
