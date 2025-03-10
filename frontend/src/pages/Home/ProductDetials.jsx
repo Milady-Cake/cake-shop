@@ -1,14 +1,14 @@
-import React, { useState, useContext, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Heart, HelpCircle, Share2 } from "lucide-react";
-import { FiPlusCircle } from "react-icons/fi";
-import { LuCircleMinus } from "react-icons/lu";
-import { IoIosTimer } from "react-icons/io";
-import { TbTruckDelivery } from "react-icons/tb";
-import ProductTabs from "./ProductNav";
-import { StoreContext } from "../../context/StoreContext";
-import { useParams, useNavigate } from "react-router-dom";
+import { HelpCircle, Share2 } from "lucide-react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
+import { FiPlusCircle } from "react-icons/fi";
+import { IoIosTimer } from "react-icons/io";
+import { LuCircleMinus } from "react-icons/lu";
+import { TbTruckDelivery } from "react-icons/tb";
+import { useNavigate, useParams } from "react-router-dom";
+import { StoreContext } from "../../context/StoreContext";
+import ProductTabs from "./ProductNav";
 
 const ProductDetails = () => {
   const { cartItems, addToCart, cake_list } = useContext(StoreContext);
@@ -158,9 +158,26 @@ const ProductDetails = () => {
               <button className="flex items-center gap-1  hover:text-black">
                 <HelpCircle size={16} /> Ask a Question
               </button>
-              <button className="flex items-center gap-1  hover:text-black">
-                <Share2 size={16} /> Share
-              </button>
+              <button
+  className="flex items-center gap-1 hover:text-black"
+  onClick={() => {
+    if (navigator.share) {
+      navigator
+        .share({
+          title: name,
+          text: `Check out this delicious cake: ${name}`,
+          url: window.location.href,
+        })
+        .then(() => console.log("Shared successfully"))
+        .catch((error) => console.log("Sharing failed", error));
+    } else {
+      alert("Sharing not supported in this browser.");
+    }
+  }}
+>
+  <Share2 size={16} /> Share
+</button>
+
             </div>
             {/* Message Input */}
             <div className="pt-4 max-md:pt-2 lg:py-4">
