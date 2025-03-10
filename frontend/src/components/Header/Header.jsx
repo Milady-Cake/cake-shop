@@ -266,7 +266,7 @@ const Navbar = ({ setShowLogin }) => {
     <div className="absolute top-2 left-0 w-full bg-transparent shadow-none z-50 py-4 px-4 md:px-10 flex justify-between items-center">
       {/* Logo */}
       <NavLink to="/">
-        <img src={assets.logo} alt="Logo" className="w-36 md:w-40" />
+        <img src={assets.logo} alt="Logo" className="w-36 max-md:w-44 max-md:h-14 md:w-40" />
       </NavLink>
 
       {/* Navigation Links */}
@@ -291,7 +291,7 @@ const Navbar = ({ setShowLogin }) => {
       </ul>
 
       {/* Right Section (Search, Cart, Profile) */}
-      <div className="flex items-center space-x-6">
+      <div className="flex items-center space-x-6 max-md:space-x-4 max-md:pl-6">
         <IoSearchOutline className="text-3xl text-white cursor-pointer hover:text-orange-500" />
         <div className="relative">
           <NavLink to="/cart">
@@ -305,9 +305,9 @@ const Navbar = ({ setShowLogin }) => {
         {!token ? (
           <button
             onClick={() => setShowLogin(true)}
-            className="border border-white text-white px-4 py-2 rounded-full transition hover:bg-white hover:text-black"
+            className="border border-white text-white px-2 py-2 max-md:py-1 rounded-full max-md:rounded-md max-md:text-base transition hover:bg-white hover:text-black"
           >
-            Sign In
+            Login
           </button>
         ) : (
           <div className="relative group">
@@ -371,7 +371,7 @@ const Header = ({ setShowLogin }) => {
           initial={{ x: "-150%", opacity: 0 }}
           animate={{ x: "0", opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute z-30 left-16 bottom-[-50px] w-96 h-[380px]"
+          className="absolute z-30 left-16 bottom-[-50px] w-96  max-md:hidden h-[380px]"
         />
       </div>
 
