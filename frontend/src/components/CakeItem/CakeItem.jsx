@@ -1,5 +1,3 @@
-
-
 // import { useState, useContext } from "react";
 // import { StoreContext } from "../../context/StoreContext";
 // import { useNavigate } from "react-router-dom";
@@ -31,10 +29,9 @@
 //   const { url } = useContext(StoreContext);
 //   const [hovered, setHovered] = useState(false);
 //   const [liked, setLiked] = useState(false);
-  
+
 //   const [isOpen, setIsOpen] = useState(false); // Popup state
 //   const navigate = useNavigate();
-
 
 //   const discount = Math.round(((price - offerPrice) / price) * 100);
 
@@ -120,7 +117,6 @@
 //     </>
 //   );
 // };
-
 
 // const ProductPopup = ({
 //   isOpen,
@@ -308,21 +304,7 @@
 
 // export default CakeItem;
 
-
-
-
-
-
-
-
 // correct working code
-
-
-
-
-
-
-
 
 // import { useState, useContext, useEffect } from "react";
 // import { StoreContext } from "../../context/StoreContext";
@@ -439,7 +421,7 @@
 //               <span className="text-sm ">(20 )</span>
 //             </div>
 //           <div className="flex justify-start gap-4 items-center max-md:text-base ">
-  
+
 //   <p className="text-[20px] max-md:text-[17px] font-bold text-red-500">
 //     ₹{offerPrice}
 //   </p>
@@ -447,7 +429,6 @@
 //     ₹{originalPrice}
 //   </p>
 // </div>
-
 
 //           <button
 //             className="lg:mt-3 max-md:mt-1 w-full bg-gradient-to-b from-red-500 to-orange-500 text-white lg:py-2 rounded-md flex items-center justify-center gap-2 hover:from-red-600 hover:to-orange-600"
@@ -689,7 +670,6 @@
 
 // export default CakeItem;
 
-
 // updated deva
 
 import { motion } from "framer-motion";
@@ -719,7 +699,7 @@ const CakeItem = ({
   rating,
   reviews = 20,
   weights,
-  originalPrice=699,
+  originalPrice = 699,
   prices,
   category,
 }) => {
@@ -740,129 +720,73 @@ const CakeItem = ({
 
   return (
     <>
-      <motion.div
-        className="relative bg-white rounded-xl shadow-lg overflow-hidden border-2 border-gray-300 transition-transform duration-300 hover:scale-105 lg:p-3"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="relative overflow-hidden">
-          <img
-            src={`${url}images/${image?.[0]}`}
-            alt={name}
-            onClick={() => navigate(`/detail/${id}`)}
-            className={`w-full h-72 max-md:h-36 object-cover rounded-t-xl transition-transform duration-300 ${
-              hovered ? "scale-110" : "scale-100"
-            }`}
-          />
-          <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs font-bold rounded">
-            {discount}% OFF
-          </div>
-          <div
-            className={`absolute top-2 right-2 flex flex-col gap-2 transition-opacity duration-300 ${
-              hovered ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200">
-              <FaEye
-                onClick={() => navigate(`/detail/${id}`)}
-                className="text-gray-600"
-              />
-            </button>
-            <button
-  className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
-  onClick={() => {
-    if (navigator.share) {
-      navigator
-        .share({
-          title: name,
-          text: `Check out this delicious cake: ${name}`,
-          url: window.location.href,
-        })
-        .then(() => console.log("Shared successfully"))
-        .catch((error) => console.log("Sharing failed", error));
-    } else {
-      alert("Sharing not supported in this browser.");
-    }
-  }}
->
-<button
-  className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
-  onClick={() => {
-    const productUrl = `${window.location.origin}/detail/${id}`; // Ensure correct product URL
-
-    if (navigator.share) {
-      navigator
-        .share({
-          title: name,
-          text: `Check out this delicious cake: ${name}`,
-          url: productUrl, // Share the correct product page URL
-        })
-        .then(() => console.log("Shared successfully"))
-        .catch((error) => console.log("Sharing failed", error));
-    } else {
-      alert("Sharing not supported in this browser.");
-    }
-  }}
->
-  <FaCodeBranch className="text-gray-600" />
-</button>
-
-
-            <button
-              className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
-              onClick={() => setLiked(!liked)}
-            >
-              <FaHeart className={liked ? "text-red-500" : "text-gray-600"} />
-            </button>
-          </div>
+     <motion.div
+      className="relative bg-white rounded-xl shadow-lg overflow-hidden border-2 border-gray-300 transition-transform duration-300 hover:scale-105 w-full max-w-[360px] sm:max-w-[400px] md:max-w-[420px] lg:max-w-[450px]"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="relative overflow-hidden">
+        <img
+          src={`${url}images/${image?.[0]}`}
+          alt={name}
+          onClick={() => navigate(`/detail/${id}`)}
+          className={`w-full h-80 max-md:h-44 object-cover rounded-t-xl transition-transform duration-300 ${
+            hovered ? "scale-110" : "scale-100"
+          }`}
+        />
+        <div className="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs font-bold rounded">
+          {discount}% OFF
         </div>
-
-        <div className="p-2">
-          <h3 className="text-xl font-bold max-md:line-clamp-2 text-gray-900 max-md:text-base">
-            {name}
-          </h3>
-          <p className="line-clamp-2 max-md:hidden  text-pretty">
-            {description}
-          </p>
-          <div className="flex  items-center  lg:gap-1 lg:py-1 text-gray-600">
-              {Array.from({ length: 5 }, (_, index) => (
-                <span
-                  key={index}
-                  className={
-                    index < Math.round(rating)
-                      ? "text-yellow-500 lg:text-xl"
-                      : "text-gray-400"
-                  }
-                >
-                  ★
-                </span>
-              ))}
-              <span className="text-sm ">(20 )</span>
-            </div>
-          <div className="flex justify-start gap-4 items-center max-md:text-base ">
-  
-  <p className="text-[20px] max-md:text-[17px] font-bold text-red-500">
-    ₹{offerPrice}
-  </p>
-  <p className="text-[18px] max-md:text-[15px] max-md:text-xs text-gray-500 line-through">
-    ₹{originalPrice}
-  </p>
-</div>
-
-
+        <div
+          className={`absolute top-2 right-2 flex flex-col gap-2 transition-opacity duration-300 ${
+            hovered ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200" onClick={() => navigate(`/detail/${id}`)}>
+            <FaEye className="text-gray-600" />
+          </button>
           <button
-            className="lg:mt-3 max-md:mt-1 w-full bg-gradient-to-b from-red-500 to-orange-500 text-white lg:py-2 rounded-md flex items-center justify-center gap-2 hover:from-red-600 hover:to-orange-600"
-            onClick={() => setIsOpen(true)}
+            className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
+            onClick={() => setLiked(!liked)}
           >
-            <FaShoppingCart />
-            Add to cart
+            <FaHeart className={liked ? "text-red-500" : "text-gray-600"} />
           </button>
         </div>
-      </motion.div>
+      </div>
+
+      <div className="p-3">
+        <h3 className="text-xl font-bold max-md:line-clamp-2 text-gray-900 max-md:text-base">{name}</h3>
+        <p className="line-clamp-2 max-md:hidden text-pretty text-gray-700">{description}</p>
+        <div className="flex items-center gap-1 py-1 text-gray-600">
+          {Array.from({ length: 5 }, (_, index) => (
+            <span
+              key={index}
+              className={
+                index < Math.round(rating) ? "text-yellow-500 text-lg" : "text-gray-400"
+              }
+            >
+              ★
+            </span>
+          ))}
+          <span className="text-sm">(20)</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <p className="text-lg font-bold text-red-500">₹{offerPrice}</p>
+          <p className="text-base text-gray-500 line-through">₹{originalPrice}</p>
+        </div>
+
+        <button
+          className="mt-3 w-full bg-gradient-to-b from-red-500 to-orange-500 text-white py-2 rounded-md flex items-center justify-center gap-2 hover:from-red-600 hover:to-orange-600"
+          onClick={() => console.log("Added to cart")}
+        >
+          <FaShoppingCart /> Add to cart
+        </button>
+      </div>
+    </motion.div>
 
       <ProductPopup
         isOpen={isOpen}
@@ -923,7 +847,11 @@ const ProductPopup = ({
   };
 
   return (
-    <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
+    <Dialog
+      open={isOpen}
+      onClose={() => setIsOpen(false)}
+      className="relative z-50"
+    >
       <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center p-4">
         <Dialog.Panel className="bg-white p-6 w-full max-w-screen-xl max-md:overflow-y-auto hide-scrollbar h-[80vh] max-md:h-[95vh] shadow-lg relative">
           {/* Close Button */}
@@ -970,8 +898,12 @@ const ProductPopup = ({
 
             {/* Product Details */}
             <div className="flex flex-col">
-              <p className="text-sm text-gray-500 max-md:text-xs lg:py-1">{category}</p>
-              <h1 className="text-3xl max-md:text-xl font-medium py-1">{name}</h1>
+              <p className="text-sm text-gray-500 max-md:text-xs lg:py-1">
+                {category}
+              </p>
+              <h1 className="text-3xl max-md:text-xl font-medium py-1">
+                {name}
+              </h1>
               <p className="text-gray-600 py-2">{description}</p>
 
               {/* ⭐ Ratings */}
@@ -979,7 +911,11 @@ const ProductPopup = ({
                 {Array.from({ length: 5 }, (_, index) => (
                   <span
                     key={index}
-                    className={index < Math.round(rating) ? "text-yellow-500 text-xl" : "text-gray-400"}
+                    className={
+                      index < Math.round(rating)
+                        ? "text-yellow-500 text-xl"
+                        : "text-gray-400"
+                    }
                   >
                     ★
                   </span>
@@ -1000,7 +936,9 @@ const ProductPopup = ({
                       key={weight}
                       onClick={() => handleWeightSelection(weight)}
                       className={`px-3 py-1 border rounded-md text-sm transition-all duration-300 ${
-                        selectedWeight === weight ? "border-black bg-gray-200" : "border-gray-300 hover:bg-gray-100"
+                        selectedWeight === weight
+                          ? "border-black bg-gray-200"
+                          : "border-gray-300 hover:bg-gray-100"
                       }`}
                     >
                       {weight}
@@ -1008,7 +946,8 @@ const ProductPopup = ({
                   ))}
                 </div>
                 <p className="font-medium text-sm py-2">
-                  Selected Weight: <span className="font-bold">{selectedWeight}</span>
+                  Selected Weight:{" "}
+                  <span className="font-bold">{selectedWeight}</span>
                 </p>
               </div>
 
@@ -1018,28 +957,26 @@ const ProductPopup = ({
                   <HelpCircle size={16} /> Ask a Question
                 </button>
                 <button
-  className="flex items-center gap-1 hover:text-black"
-  onClick={() => {
-    const productUrl = `${window.location.origin}${window.location.pathname}`; // Ensures correct shared URL
+                  className="flex items-center gap-1 hover:text-black"
+                  onClick={() => {
+                    const productUrl = `${window.location.origin}${window.location.pathname}`; // Ensures correct shared URL
 
-    if (navigator.share) {
-      navigator
-        .share({
-          title: name,
-          text: `Check out this delicious cake: ${name}`,
-          url: productUrl, // Uses the correct URL for the current page
-        })
-        .then(() => console.log("Shared successfully"))
-        .catch((error) => console.log("Sharing failed", error));
-    } else {
-      alert("Sharing not supported in this browser.");
-    }
-  }}
->
-  <Share2 size={16} /> Share
-</button>
-
-
+                    if (navigator.share) {
+                      navigator
+                        .share({
+                          title: name,
+                          text: `Check out this delicious cake: ${name}`,
+                          url: productUrl, // Uses the correct URL for the current page
+                        })
+                        .then(() => console.log("Shared successfully"))
+                        .catch((error) => console.log("Sharing failed", error));
+                    } else {
+                      alert("Sharing not supported in this browser.");
+                    }
+                  }}
+                >
+                  <Share2 size={16} /> Share
+                </button>
               </div>
 
               {/* Quantity & Add to Cart Section */}
@@ -1047,7 +984,9 @@ const ProductPopup = ({
                 <div className="flex gap-5">
                   <div className="flex border-2 border-gray-300">
                     <button
-                      onClick={() => setSelectedQuantity((prev) => Math.max(prev - 1, 1))}
+                      onClick={() =>
+                        setSelectedQuantity((prev) => Math.max(prev - 1, 1))
+                      }
                       className="border-r px-3 py-2"
                       disabled={selectedQuantity === 1}
                     >
@@ -1065,7 +1004,10 @@ const ProductPopup = ({
                     className="p-3 border-2 border-gray-300"
                     onClick={() => setLiked(!liked)}
                   >
-                    <FaHeart size={18} className={liked ? "text-red-500" : "text-gray-600"} />
+                    <FaHeart
+                      size={18}
+                      className={liked ? "text-red-500" : "text-gray-600"}
+                    />
                   </button>
                 </div>
 
@@ -1077,33 +1019,34 @@ const ProductPopup = ({
                 </button>
               </div>
               <div className="flex items-center gap-2 py-2 max-md:py-1 text-xs sm:text-sm md:text-base lg:text-lg">
-              <input type="checkbox" className="w-4 h-4 sm:w-5 sm:h-5" />
-              <label className="text-gray-600">
-                I agree with{" "}
-                <span className="underline cursor-pointer">
-                  Terms & Conditions
-                </span>
-              </label>
-            </div>
-                 <div className="text-gray-700 py-4 max-md:pt-1 text-base max-md:text-sm  lg:text-base space-y-2 sm:space-y-3 md:space-y-4">
-                          <p className="flex items-center gap-2 sm:gap-3">
-                            Usually ready in <strong>24 hours</strong>.
-                          </p>
-                          <p className="flex items-center gap-2 sm:gap-3">
-                            <IoIosTimer className="text-sm sm:text-lg md:text-xl lg:text-2xl" />
-                            <span>
-                              Estimate delivery times: <strong>1 - 3 days</strong>{" "}
-                              (International), <strong>3 - 6 days</strong> (United States).
-                            </span>
-                          </p>
-                          <p className="flex items-center gap-2 sm:gap-3">
-                            <TbTruckDelivery className="text-sm sm:text-lg md:text-xl lg:text-2xl" />
-                            <span>
-                              Return within <strong>Same Day</strong> of purchase. Duties &
-                              taxes are <strong>non-refundable</strong>.
-                            </span>
-                          </p>
-                        </div>
+                <input type="checkbox" className="w-4 h-4 sm:w-5 sm:h-5" />
+                <label className="text-gray-600">
+                  I agree with{" "}
+                  <span className="underline cursor-pointer">
+                    Terms & Conditions
+                  </span>
+                </label>
+              </div>
+              <div className="text-gray-700 py-4 max-md:pt-1 text-base max-md:text-sm  lg:text-base space-y-2 sm:space-y-3 md:space-y-4">
+                <p className="flex items-center gap-2 sm:gap-3">
+                  Usually ready in <strong>24 hours</strong>.
+                </p>
+                <p className="flex items-center gap-2 sm:gap-3">
+                  <IoIosTimer className="text-sm sm:text-lg md:text-xl lg:text-2xl" />
+                  <span>
+                    Estimate delivery times: <strong>1 - 3 days</strong>{" "}
+                    (International), <strong>3 - 6 days</strong> (United
+                    States).
+                  </span>
+                </p>
+                <p className="flex items-center gap-2 sm:gap-3">
+                  <TbTruckDelivery className="text-sm sm:text-lg md:text-xl lg:text-2xl" />
+                  <span>
+                    Return within <strong>Same Day</strong> of purchase. Duties
+                    & taxes are <strong>non-refundable</strong>.
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
         </Dialog.Panel>
@@ -1113,4 +1056,3 @@ const ProductPopup = ({
 };
 
 export default CakeItem;
-

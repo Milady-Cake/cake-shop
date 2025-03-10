@@ -450,51 +450,47 @@ const Navbar = ({ setShowLogin }) => {
 
 
       {/* Right Section (Search, Cart, Profile) */}
-      <div className="flex items-center space-x-6">
-        {/* Search Icon */}
-       <IoSearchOutline className="text-3xl text-black cursor-pointer hover:text-orange-500" />
-
-        {/* Cart Icon with Badge */}
-        <div className="relative">
-          <NavLink to="/cart">
-           <IoBagHandleOutline  className="text-3xl text-black cursor-pointer  hover:text-orange-500 " />
-          </NavLink>
-          {getTotalCartAmount() !== 0 && (
-            <div className="absolute top-0 right-0 bg-red-500 w-3 h-3 rounded-full"></div>
-          )}
-        </div>
-
-        {/* User Authentication */}
-        {!token ? (
-          <button
-            onClick={() => setShowLogin(true)}
-            className="border border-red-500 text-gray-700 px-4 py-2 rounded-full transition hover:bg-red-100"
-          >
-            Sign In
-          </button>
-        ) : (
-          <div className="relative group">
-          <RiAccountCircleLine  className="text-3xl text-black cursor-pointer  hover:text-orange-500  " />
-            <ul className="absolute right-0 top-7 hidden group-hover:flex flex-col bg-white shadow-lg border border-red-500 rounded-md px-5 w-40 py-3 space-y-3">
-              <li
-                onClick={() => navigate("/orders")}
-                className="flex items-center space-x-2 cursor-pointer hover:text-red-500"
-              >
-                <img src={assets.bag_icon} alt="Orders" className="w-5  hover:text-red-500 " />
-                <p>My Orders</p>
-              </li>
-              <hr />
-              <li
-                onClick={logout}
-                className="flex items-center space-x-2 cursor-pointer hover:text-red-500"
-              >
-                <img src={assets.logout_icon} alt="Logout" className="w-5  hover:text-red-500" />
-                <p>Logout</p>
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
+      <div className="flex items-center space-x-6 max-md:space-x-4 max-md:pl-6">
+             <IoSearchOutline className="text-3xl text-black cursor-pointer hover:text-orange-500" />
+             <div className="relative">
+               <NavLink to="/cart">
+                 <IoBagHandleOutline className="text-3xl text-black cursor-pointer  hover:text-orange-500 " />
+               </NavLink>
+               {getTotalCartAmount() !== 0 && (
+                 <div className="absolute top-0 right-0 bg-red-500 w-3 h-3 rounded-full"></div>
+               )}
+             </div>
+     
+             {!token ? (
+               <button
+                 onClick={() => setShowLogin(true)}
+                 className="border border-orange-500 text-black px-2 py-2 max-md:py-1 rounded-full max-md:rounded-md max-md:text-base transition hover:bg-white hover:text-black"
+               >
+                 Login
+               </button>
+             ) : (
+               <div className="relative group">
+                 <CgProfile className="text-3xl text-black cursor-pointer  hover:text-orange-500  " />
+                 <ul className="absolute right-0 top-7 hidden group-hover:flex flex-col bg-white shadow-lg border border-red-500 rounded-md px-5 w-40 py-3 space-y-3">
+                   <li
+                     onClick={() => navigate("/myorders")}
+                     className="flex items-center space-x-2 cursor-pointer hover:text-red-500"
+                   >
+                     <img src={assets.bag_icon} alt="Orders" className="w-5" />
+                     <p>My Orders</p>
+                   </li>
+                   <hr />
+                   <li
+                     onClick={logout}
+                     className="flex items-center space-x-2 cursor-pointer hover:text-red-500"
+                   >
+                     <img src={assets.logout_icon} alt="Logout" className="w-5" />
+                     <p>Logout</p>
+                   </li>
+                 </ul>
+               </div>
+             )}
+           </div>
     </div>
   );
 };
