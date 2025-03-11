@@ -941,7 +941,7 @@ const ProductPopup = ({
               <h1 className="text-3xl max-md:text-xl font-medium py-1">
                 {name}
               </h1>
-              <p className="text-gray-600 py-2">{description}</p>
+              <p className="text-gray-600  lg:line-clamp-4 max-md:line-clamp-6 ">{description}</p>
 
               {/* ⭐ Ratings */}
               <div className="flex items-center gap-2 py-1 text-gray-600">

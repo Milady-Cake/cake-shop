@@ -14,6 +14,7 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Verify from './pages/Verify/Verify'
 import CakeLoader from './pages/Home/Loader'
 import Menu from './components/Menu/Menu'
+import CategoryProduct from './components/Menu/CategoryProduct'
 
 // deva
 
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/contact" element={<ContactSection />} />
           <Route path="/detail/:id" element={<ProductDetials/>} />
           <Route path="/menu" element={<Menu/>} />
+          <Route path="/menu/:category" element={<CategoryProduct/>} />
 
 {/* 
           <Route path="/hero" element={<BakeryUI />} />

@@ -159,7 +159,7 @@ const Menu = ({ category, setCategory }) => {
             <div className="flex justify-between items-center">
               <h3 className="text-2xl py-3 font-semibold text-black  ">{cat}</h3>
               <button
-                onClick={() => navigate(`/cakes?category=${encodeURIComponent(cat)}`)}
+                onClick={() => navigate(`/menu/${encodeURIComponent(cat)}`)}
                 className="text-pink-600  font-semibold hover:underline"
               >
                 View All
