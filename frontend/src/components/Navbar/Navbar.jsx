@@ -1,12 +1,11 @@
 
 
-import React, { useContext, useState, useEffect } from "react";
-import { assets } from "../../assets/assets";
-import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import { StoreContext } from "../../context/StoreContext";
-import { FiShoppingBag } from "react-icons/fi";
-import { RiAccountCircleLine } from "react-icons/ri";
+import React, { useContext, useEffect, useState } from "react";
+import { CgProfile } from "react-icons/cg";
 import { IoBagHandleOutline, IoSearchOutline } from "react-icons/io5";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { assets } from "../../assets/assets";
+import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
