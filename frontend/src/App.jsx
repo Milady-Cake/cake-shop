@@ -12,6 +12,8 @@ import ProductDetials from './pages/Home/ProductDetials'
 import MyOrders from './pages/MyOrders/MyOrders'
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder'
 import Verify from './pages/Verify/Verify'
+import CakeLoader from './pages/Home/Loader'
+import Menu from './components/Menu/Menu'
 
 // deva
 
@@ -34,6 +36,7 @@ const App = () => {
           <Route path="/myorders" element={<MyOrders />} />
           <Route path="/contact" element={<ContactSection />} />
           <Route path="/detail/:id" element={<ProductDetials/>} />
+          <Route path="/menu" element={<Menu/>} />
 
 {/* 
           <Route path="/hero" element={<BakeryUI />} />
@@ -42,6 +45,7 @@ const App = () => {
           <Route path="/card" element={<ProductSection/>} />
           <Route path="/best" element={<BestSelling/>} /> */}
         
+        <Route path="/loader" element={<CakeLoader/>} />
           <Route path="check" element={<CheckoutForm/>} />
 
         </Routes>

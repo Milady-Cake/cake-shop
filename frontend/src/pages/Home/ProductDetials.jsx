@@ -14,7 +14,7 @@ const ProductDetails = () => {
   const { cartItems, addToCart, cake_list } = useContext(StoreContext);
   const { id } = useParams();
   const navigate = useNavigate();
-  const url = "https://cake-shop-backend-qfhf.onrender.com/";
+  const url = "https://cake-shop-backend-qfhf.onrender.com";
 
   const [message, setMessage] = useState("");
   const [liked, setLiked] = useState(false);
@@ -29,7 +29,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     if (cakeDetails?.images?.length) {
-      setSelectedImage(`${url}images/${cakeDetails.images[0]}`);
+      setSelectedImage(`${url}/images/${cakeDetails.images[0]}`);
     }
     if (weights.length > 0) {
       setSelectedWeight(weights[0]);
@@ -67,7 +67,9 @@ const ProductDetails = () => {
 
           <div className="flex justify-center gap-2">
             {cakeDetails.images.map((image, index) => {
-              const fullImagePath = `${url}images/${image}`;
+              const fullImagePath = `${url}/images/${image}`;
+              console.log(fullImagePath);
+              
               return (
                 <motion.img
                   key={index}
