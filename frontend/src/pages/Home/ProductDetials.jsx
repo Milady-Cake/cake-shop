@@ -306,10 +306,14 @@ const ProductDetails = () => {
                 />
               </div>
             </div>
+            <hr  className="my-3 "/>
+            <ProductTabs  props={cakeDetails.description} />
           </motion.div>
+         
         </motion.div>
+        
       </div>
-      <ProductTabs />
+      
 
       <div className="flex py-7">
         <p className=" text-4xl max-md:text-xl  ">Related Product </p>
