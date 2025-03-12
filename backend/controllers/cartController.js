@@ -164,8 +164,8 @@ const getCart = async (req, res) => {
     res.json({ success: true, cartData });
   } catch (error) {
     console.log(error);
-    res.json({ success: false, message: "Error fetching cart" });
+    res.json({ success: false, message: "Error fetching the cart" });
   }
 };
 
-export { addToCart, removeFromCart, removeProductFromCart, getCart };
+export { addToCart, removeFromCart, removeProductFromCart,   getCart };
