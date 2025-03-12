@@ -187,16 +187,17 @@ const Menu = ({ category, setCategory }) => {
 // Cake Card Component
 const CakeCard = ({ item, index }) => {
   const url = "https://cake-shop-backend-qfhf.onrender.com"; // Hardcoded URL
-
+const navigate = useNavigate()
   // Log the image URL
-  console.log("Image URL:", `${url}/images/${item.images?.[0]}`);
-
+  // console.log("Image URL:", `${url}/images/${item.images?.[0]}`);
+  // console.log(item._id);
   return (
     <motion.div
       className="cursor-pointer text-center relative overflow-hidden shadow-md hover:shadow-lg transition-all"
       layout
     >
-      <div className="relative">
+      <div className="relative"
+      onClick={()=> navigate (`/detail/${item._id}`)}>
         <motion.img
           className="w-full h-[250px] object-cover"
           src={`${url}/images/${item.images?.[0]}`} // Fixed URL
@@ -205,11 +206,17 @@ const CakeCard = ({ item, index }) => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.4, delay: index * 0.1 }}
+          
+          
         />
+       
+        
         <div className="absolute inset-2 border-2 border-white opacity-80"></div>
       </div>
+
       <p className="py-3 text-gray-800 text-lg font-semibold bg-white">{item.name}</p>
     </motion.div>
+    
   );
 };
 
