@@ -22,7 +22,7 @@ const ProductTabs = ({ props }) => {
 
   return (
     <div
-      className={`mx-3 mt-6  ${
+      className={` mt-6  ${
         isSmallScreen ? "w-full max-w-screen-lg" : "max-w-screen-xl"
       }`}
     >
@@ -59,11 +59,11 @@ export default ProductTabs;
 
 const CancellationPolicy = () => {
   return (
-    <div className="max-w-5xl   p-2 bg-white  rounded-lg">
-      <h2 className="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">
+    <div className="max-w-5xl  max-md:p-2  lg:p-2 bg-white  rounded-lg">
+      <h2 className="text-2xl max-md:hidden font-bold text-gray-800 border-b pb-2 mb-4">
         Cancellation and Refund Policy
       </h2>
-      <ul className="list-decimal text-lg space-y-4 text-gray-700">
+      <ul className="list-decimal text-lg space-y-4 max-md:space-y-1 max-md:text-base text-gray-700">
         <li>
           Since all orders are customized as per the customer’s requirement and
           are perishable in nature, refund on any cancellation is not possible
@@ -109,11 +109,11 @@ const CancellationPolicy = () => {
 
 const DeliveryInfo = () => {
   return (
-    <div className="max-w-5xl   p-2 bg-white  rounded-lg">
-      <h2 className="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">
+    <div className="max-w-5xl   lg:p-2 bg-white  rounded-lg">
+      <h2 className="text-2xl max-md:hidden font-bold text-gray-800 border-b pb-2 mb-4">
         Delivery Information
       </h2>
-      <ul className="list-disc text-lg space-y-4 text-gray-700 pl-6">
+      <ul className="list-disc text-lg space-y-4 max-md:space-y-1 max-md:text-base text-gray-700 pl-6">
         <li>
           Every cake we offer is handcrafted, and since each chef has their own
           way of baking and designing a cake, there might be slight variations
@@ -149,16 +149,16 @@ const DeliveryInfo = () => {
 
 const CareInstructions = ({ props }) => {
   return (
-    <div className="max-w-5xl   p-2  bg-white  rounded-lg">
-      <h2 className="text-2xl  font-bold text-gray-800 border-b pb-2 mb-4">
+    <div className="max-w-5xl   lg:p-2  bg-white  rounded-lg">
+      <h2 className="text-2xl  max-md:hidden font-bold text-gray-800 border-b pb-2 mb-4">
         Product Description
       </h2>
-      <p className="text-lg  text-gray-700 ">{props}</p>
+      <p className="text-lg  max-md:text-base  text-gray-700 ">{props}</p>
 
-      <h2 className="text-2xl font-bold text-gray-800 border-b pb-2 mb-4">
-        Care Instructions
+      <h2 className="text-2xl mt-3 font-bold text-gray-800 border-b pb-2 mb-4">
+        Care Instruction1
       </h2>
-      <ul className="list-disc text-lg space-y-4 text-gray-700 pl-6">
+      <ul className="list-disc text-lg space-y-4 max-md:space-y-1 max-md:text-base  text-gray-700 pl-6">
         <li>All cakes must be stored in the refrigerator.</li>
         <li>
           Cakes ordered with fondant must be stored in an air-conditioned

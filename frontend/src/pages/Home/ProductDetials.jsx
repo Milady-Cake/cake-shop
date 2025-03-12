@@ -52,7 +52,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="flex flex-col w-full max-md:px-1 items-center">
+    <div className="flex flex-col w-full  items-center">
       <div className="flex flex-col lg:flex-row w-full pt-20">
         {/* Left Section - Product Images */}
         <div className="lg:w-1/2  max-md:w-full p-4  lg:sticky  lg:top-12 max-md:top-20 lg:h-[700px] flex flex-col items-center py-5">
