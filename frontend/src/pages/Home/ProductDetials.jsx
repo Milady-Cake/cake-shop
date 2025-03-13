@@ -69,7 +69,7 @@ const ProductDetails = () => {
             {cakeDetails.images.map((image, index) => {
               const fullImagePath = `${url}/images/${image}`;
               console.log(fullImagePath);
-              
+
               return (
                 <motion.img
                   key={index}
@@ -161,28 +161,26 @@ const ProductDetails = () => {
                 <HelpCircle size={16} /> Ask a Question
               </button>
               <button
-  className="flex items-center gap-1 hover:text-black"
-  onClick={() => {
-    const productUrl = `${window.location.origin}/detail/${id}`; // Correct product page URL
+                className="flex items-center gap-1 hover:text-black"
+                onClick={() => {
+                  const productUrl = `${window.location.origin}/detail/${id}`; // Correct product page URL
 
-    if (navigator.share) {
-      navigator
-        .share({
-          title: name,
-          text: `Check out this delicious cake: ${name}`,
-          url: productUrl, // Share the correct product page URL
-        })
-        .then(() => console.log("Shared successfully"))
-        .catch((error) => console.log("Sharing failed", error));
-    } else {
-      alert("Sharing not supported in this browser.");
-    }
-  }}
->
-  <Share2 size={16} /> Share
-</button>
-
-
+                  if (navigator.share) {
+                    navigator
+                      .share({
+                        title: name,
+                        text: `Check out this delicious cake: ${name}`,
+                        url: productUrl, // Share the correct product page URL
+                      })
+                      .then(() => console.log("Shared successfully"))
+                      .catch((error) => console.log("Sharing failed", error));
+                  } else {
+                    alert("Sharing not supported in this browser.");
+                  }
+                }}
+              >
+                <Share2 size={16} /> Share
+              </button>
             </div>
             {/* Message Input */}
             <div className="pt-4 max-md:pt-2 lg:py-4">
@@ -306,14 +304,11 @@ const ProductDetails = () => {
                 />
               </div>
             </div>
-            <hr  className="my-3 "/>
-            <ProductTabs  props={cakeDetails.description} />
+            <hr className="my-3 " />
+            <ProductTabs props={cakeDetails.description} />
           </motion.div>
-         
         </motion.div>
-        
       </div>
-      
 
       <div className="flex py-7">
         <p className=" text-4xl max-md:text-xl  ">Related Product </p>
