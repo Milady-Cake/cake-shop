@@ -8,6 +8,7 @@ import {
   useMediaQuery,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import ReviewSection from "../../components/Reviews/ReviewForm";
 
 const ProductTabs = ({ props }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -15,7 +16,7 @@ const ProductTabs = ({ props }) => {
 
   const tabs = [
     { label: "Description", content: <CareInstructions props={props} /> },
-    { label: "Customer Reviews", content: "No reviews yet." },
+    { label: "Customer Reviews", content: <ReviewSection /> },
     { label: "Delivery Information", content: <DeliveryInfo /> },
     { label: "Return Policies", content: <CancellationPolicy /> },
   ];

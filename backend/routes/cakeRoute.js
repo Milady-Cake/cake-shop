@@ -1,5 +1,3 @@
-
-
 import express from "express";
 import {
   addCake,
@@ -26,6 +24,5 @@ cakeRouter.post("/add", upload.array("images", 4), addCake);
 cakeRouter.get("/list", listCake);
 cakeRouter.post("/remove", removeCake);
 cakeRouter.post("/update", upload.array("images", 4), updateCake);
-
 
 export default cakeRouter;
