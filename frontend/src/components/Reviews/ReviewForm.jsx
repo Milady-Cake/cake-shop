@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Star } from "lucide-react";
 
-export default function ReviewSection() {
+export default function ReviewSection({}) {
   const [reviews, setReviews] = useState([]);
   const [showReviewForm, setShowReviewForm] = useState(false);
 
@@ -13,7 +13,7 @@ export default function ReviewSection() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/reviews") // API endpoint to fetch reviews
+      .get("http://localhost:4000/api/cake/list") // API endpoint to fetch reviews
       .then((response) => setReviews(response.data))
       .catch((error) => console.error("Error fetching reviews:", error));
   }, []);
@@ -49,10 +49,6 @@ export default function ReviewSection() {
   return (
     <div className="p-4 border rounded shadow-md">
       <h2 className="text-xl font-bold">Ratings & Reviews</h2>
-      <div className="flex items-center mt-2">
-        <Star className="text-yellow-500" />
-        <span className="text-lg font-semibold">4.9 / 5</span>
-      </div>
 
       {/* Display Reviews Images */}
       <div className="flex space-x-2 mt-4 overflow-x-auto">

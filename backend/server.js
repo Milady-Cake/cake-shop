@@ -21,6 +21,7 @@ app.use(cors("*"));
 connectDB();
 
 //api endpoints
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/images", express.static("uploads"));
 app.use("/api/cake", cakeRouter);

@@ -67,7 +67,7 @@ const ProductDetails = () => {
 
           <div className="flex justify-center gap-2">
             {cakeDetails.images.map((image, index) => {
-              const fullImagePath = `${url}/images/${image}`;
+              const fullImagePath = `http://localhost:4000/images/${image}`;
               console.log(fullImagePath);
 
               return (
@@ -305,7 +305,11 @@ const ProductDetails = () => {
               </div>
             </div>
             <hr className="my-3 " />
-            <ProductTabs props={cakeDetails.description} />
+            <ProductTabs
+              props={cakeDetails.description}
+              productId={id}
+              ProductReviews={cakeDetails.reviews}
+            />
           </motion.div>
         </motion.div>
       </div>

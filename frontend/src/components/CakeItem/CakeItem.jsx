@@ -917,7 +917,7 @@ const ProductPopup = ({
                   image.map((img, index) => (
                     <SwiperSlide key={index}>
                       <img
-                        src={`${url}images/${img}`}
+                        src={`http://localhost:4000/images/${img}`}
                         alt={`Product ${index}`}
                         className="w-full h-[75vh] max-md:h-[30vh] object-cover rounded-md"
                       />

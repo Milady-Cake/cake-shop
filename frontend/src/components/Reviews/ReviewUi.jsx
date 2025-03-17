@@ -5,44 +5,6 @@ import { useParams } from "react-router-dom";
 import Loader from "../../ReusableComp/Loader";
 
 const ReviewSection = () => {
-  const { _id } = useParams();
-  const [reviews, setReviews] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    const fetchReviews = async () => {
-      try {
-        const response = await axios.get(
-          `https://backend-doctor-production.up.railway.app/user/reviews?docId=${_id}`
-        );
-        setReviews(response.data);
-        setLoading(false);
-      } catch (err) {
-        setError(" Reviews are not found for this Doctor ...!");
-        setLoading(false);
-      }
-    };
-
-    fetchReviews();
-  }, [_id]);
-
-  if (loading) {
-    return (
-      <div className=" w-full text-center flex justify-center items-center  ">
-        <Loader />
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <p className=" w-full text-center flex justify-center items-center h-[400px] font-semibold ">
-        {error}
-      </p>
-    );
-  }
-
   return (
     <div className="min-h-screen">
       <div className="max-w-7xl max-md:w-full mx-auto rounded-lg max-md:p-1 p-5">

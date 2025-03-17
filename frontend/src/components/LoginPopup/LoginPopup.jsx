@@ -107,8 +107,6 @@
 
 // export default LoginPopup;
 
-
-
 import React, { useState, useContext } from "react";
 import { assets } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext";
@@ -126,11 +124,13 @@ const LoginPopup = ({ setShowLogin }) => {
 
   const onLogin = async (event) => {
     event.preventDefault();
-    let newUrl = url + (currState === "Login" ? "api/user/login" : "api/user/register");
-    
+    let newUrl =
+      url + (currState === "Login" ? "api/user/login" : "api/user/register");
+
     const response = await axios.post(newUrl, data);
     if (response.data.success) {
       setToken(response.data.token);
+
       localStorage.setItem("token", response.data.token);
       setShowLogin(false);
     } else {
@@ -140,26 +140,72 @@ const LoginPopup = ({ setShowLogin }) => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <form onSubmit={onLogin} className="bg-white p-6 rounded-lg w-[min(90%,400px)] space-y-5 shadow-lg animate-fadeIn">
+      <form
+        onSubmit={onLogin}
+        className="bg-white p-6 rounded-lg w-[min(90%,400px)] space-y-5 shadow-lg animate-fadeIn"
+      >
         <div className="flex justify-between items-center text-gray-900">
           <h2 className="text-xl font-semibold">{currState}</h2>
-          <img onClick={() => setShowLogin(false)} src={assets.cross_icon} alt="Close" className="w-4 cursor-pointer" />
+          <img
+            onClick={() => setShowLogin(false)}
+            src={assets.cross_icon}
+            alt="Close"
+            className="w-4 cursor-pointer"
+          />
         </div>
         <div className="flex flex-col space-y-4">
           {currState === "Sign Up" && (
-            <input name="name" onChange={onChangeHandler} value={data.name} type="text" placeholder="Your name" required className="border border-gray-300 p-2 rounded-md outline-none" />
+            <input
+              name="name"
+              onChange={onChangeHandler}
+              value={data.name}
+              type="text"
+              placeholder="Your name"
+              required
+              className="border border-gray-300 p-2 rounded-md outline-none"
+            />
           )}
-          <input name="email" onChange={onChangeHandler} value={data.email} type="email" placeholder="Your email" required className="border border-gray-300 p-2 rounded-md outline-none" />
-          <input name="password" onChange={onChangeHandler} value={data.password} type="password" placeholder="Password" required className="border border-gray-300 p-2 rounded-md outline-none" />
+          <input
+            name="email"
+            onChange={onChangeHandler}
+            value={data.email}
+            type="email"
+            placeholder="Your email"
+            required
+            className="border border-gray-300 p-2 rounded-md outline-none"
+          />
+          <input
+            name="password"
+            onChange={onChangeHandler}
+            value={data.password}
+            type="password"
+            placeholder="Password"
+            required
+            className="border border-gray-300 p-2 rounded-md outline-none"
+          />
         </div>
-        <button type="submit" className="w-full bg-red-500 text-white py-2 rounded-md text-lg font-medium hover:bg-red-600 transition">{currState === "Sign Up" ? "Create account" : "Login"}</button>
+        <button
+          type="submit"
+          className="w-full bg-red-500 text-white py-2 rounded-md text-lg font-medium hover:bg-red-600 transition"
+        >
+          {currState === "Sign Up" ? "Create account" : "Login"}
+        </button>
         <div className="flex items-start gap-2 text-sm">
           <input type="checkbox" required className="mt-1" />
           <p>By continuing, I agree to the terms of use & privacy policy.</p>
         </div>
         <p className="text-sm text-center">
-          {currState === "Login" ? "Create a new account? " : "Already have an account? "}
-          <span onClick={() => setCurrState(currState === "Login" ? "Sign Up" : "Login")} className="text-red-500 font-medium cursor-pointer">Click here</span>
+          {currState === "Login"
+            ? "Create a new account? "
+            : "Already have an account? "}
+          <span
+            onClick={() =>
+              setCurrState(currState === "Login" ? "Sign Up" : "Login")
+            }
+            className="text-red-500 font-medium cursor-pointer"
+          >
+            Click here
+          </span>
         </p>
       </form>
     </div>

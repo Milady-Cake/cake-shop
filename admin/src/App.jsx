@@ -8,7 +8,6 @@
 // import List from './pages/List/List'
 // import Orders from './pages/Orders/Orders'
 
-
 // // testing
 
 // const App = () => {
@@ -29,17 +28,14 @@
 //           <Route path="/list" element={<List url={url}/>} />
 //           <Route path="/orders" element={<Orders url={url}/>} />
 
-
 //         </Routes>
 //       </div>
-
 
 //     </div>
 //   )
 // }
 
 // export default App
-
 
 import React from "react";
 import { Route, Routes } from "react-router-dom";
